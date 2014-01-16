@@ -15,4 +15,7 @@ install:
 after_success:
   - sudo apt-get install tree
   - gradle cobertura
+  - tree build
+  - tree .
+  - cat build/reports/cobertura/coverage.xml
   - gradle --info coveralls
