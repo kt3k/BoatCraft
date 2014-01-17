@@ -65,13 +65,17 @@ project(':thaumcraft') {
     }
 }
 
-apply plugin: 'cobertura'
-apply plugin: 'coveralls'
+project('core') {
+    apply plugin: 'cobertura'
+    apply plugin: 'coveralls'
 
-cobertura {
-    rootProject.subprojects.each {
-        coverageDirs << file("${it.name}/build/classes/main")
+    cobertura {
+        /*
+        rootProject.subprojects.each {
+            coverageDirs << file("${it.name}/build/classes/main")
+        }
+        */
+        coverageFormats = ['html', 'xml']
+        coverageIgnoreTrivial = true;
     }
-    coverageFormats = ['html', 'xml']
-    coverageIgnoreTrivial = true;
 }

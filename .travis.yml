@@ -17,5 +17,5 @@ after_success:
   - gradle cobertura
   - tree build
   - tree .
-  - cat build/reports/cobertura/coverage.xml
+  - cat core/build/reports/cobertura/coverage.xml
   - gradle --info coveralls
