@@ -9,11 +9,15 @@ buildscript {
             name = "Sonatype Snapshots"
             url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
+
+        maven {
+            url = "http://kt3k.github.io/repository/maven/release"
+        }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.1-SNAPSHOT'
         classpath 'net.saliman:gradle-cobertura-plugin:2.2.2'
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.2.1'
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.2.2'
     }
 }
 
@@ -70,11 +74,6 @@ project('core') {
     apply plugin: 'coveralls'
 
     cobertura {
-        /*
-        rootProject.subprojects.each {
-            coverageDirs << file("${it.name}/build/classes/main")
-        }
-        */
         coverageFormats = ['html', 'xml']
         coverageIgnoreTrivial = true;
     }
